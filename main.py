@@ -202,7 +202,7 @@ def main(opt):
     train_sampler = torch.utils.data.distributed.DistributedSampler(train_dataset)
     train_loader = DataLoader(train_dataset, batch_size=batch_size, sampler=train_sampler, num_workers=16, drop_last=True, collate_fn=train_data_collate, persistent_workers=True)
 
-    valid_dataset = QuickDrawDataset(opt['dataset_path'], 'test')
+    valid_dataset = QuickDrawDataset(opt['dataset_path'], 'valid')
     valid_sampler = torch.utils.data.distributed.DistributedSampler(valid_dataset)
     valid_loader = DataLoader(valid_dataset, batch_size=batch_size, sampler=valid_sampler, num_workers=16, drop_last=False, collate_fn=train_data_collate, persistent_workers=True)
 
